@@ -1,9 +1,14 @@
 <?php
 
+// TODO
+// Create admin panel to upload image
+// Allow upload of custom CSS
+
+
 function gjLoginLogo() { ?>
     <style type="text/css">
         body.login div#login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/site-login-logo.png);
+            background-image: url('/content/themes/gj-boilerplate/img/logo-dark.png');
             padding-bottom: 30px;
         }
     </style>

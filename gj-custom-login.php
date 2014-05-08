@@ -13,7 +13,7 @@ require_once('gj-custom-login-functions.php');
 add_action('admin_menu', 'gj_admin_actions');
 
 function gj_custom_login_admin_actions() {
-  add_menu_page( "GJ Custom Login", "GJ Custom Login", 'administrator', "gj_custom_login", "gj_admin_options" );
+  add_menu_page( "GJ Custom Login", "GJ Custom Login", 'administrator', "gj_custom_login", "gj_custom_login_admin_options" );
 }
 
 function gj_custom_login_admin_options() {
