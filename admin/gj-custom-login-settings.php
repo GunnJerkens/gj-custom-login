@@ -1,3 +1,1 @@
-<?php
-
-echo "make some settins";
+<h1>Yes?</h1>
