@@ -10,12 +10,22 @@ Author URI: http://gunnjerkens.com
 
 require_once('gj-custom-login-functions.php');
 
-add_action('admin_menu', 'gj_custom_login_admin_actions');
 
-function gj_custom_login_admin_actions() {
-  add_options_page( 'GJ Custom Login', 'GJ Custom Login', 'administrator', 'gj_custom_login', 'gj_custom_login_admin_options');
+class gj_custom_login {
+
+  function __construct() {
+   add_action('admin_menu', array(&$this,'gj_custom_login_admin_actions'));
+  }
+
+  function gj_custom_login_admin_actions() {
+    add_options_page( 'GJ Custom Login', 'GJ Custom Login', 'administrator', 'gj_custom_login', array(&$this,'gj_custom_login_admin_options'));
+  }
+
+  function gj_custom_login_admin_options() {
+    include ('admin/gj-custom-login-options.php');
+  }
+
+
 }
 
-function gj_custom_login_admin_options() {
-  include ('admin/gj-custom-login-options.php');
-}
+new gj_custom_login();

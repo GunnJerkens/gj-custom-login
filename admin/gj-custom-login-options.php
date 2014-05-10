@@ -3,6 +3,7 @@
 * Options page for gj-custom-login.
 */
 
+
 if ('gj-custom-login-options.php' == basename($_SERVER['SCRIPT_FILENAME'])) {
   die();
 }
@@ -19,7 +20,7 @@ $active_tab = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : 'gj_custom_login_settin
 
 <div class="wrap"><?php
 
-  if( $active_tab == 'gj_user_approve_settings' ) {
+  if( $active_tab == 'gj_custom_login_settings' ) {
     if (file_exists(__DIR__. '/gj-custom-login-settings.php')) {
       include_once(__DIR__. '/gj-custom-login-settings.php');
     }
