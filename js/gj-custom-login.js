@@ -33,4 +33,31 @@ jQuery(document).ready(function($){
   });
 
 
+  var value;
+
+  value = $('#gj_login_url_type');
+
+  value.change(function() {
+    disableURL();
+  });
+
+  function enableURL() {
+    $('#gj_login_url').prop('disabled', false);
+    $('#gj_login_url_title').prop('disabled', false);
+  }
+
+  function disableURL() {
+    enableURL();
+
+    if(value.val() === 'default') {
+      $('#gj_login_url').prop('disabled', true);
+      $('#gj_login_url_title').prop('disabled', true);
+    } else if (value.val() === 'home') {
+      $('#gj_login_url').prop('disabled', true);
+    }
+  }
+
+  disableURL();
+
+
 });
