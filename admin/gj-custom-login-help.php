@@ -27,6 +27,10 @@ body.login div#login p#backtoblog {}<br>
 body.login div#login p#backtoblog a {}<br>
 </p>
 
+<h2>Email</h2>
+
+<p>Override the default from (name/email) on password reset emails. Fields will default back to bloginfo(); to shiled from user error.</p>
+
 <h2>GitHub</h2>
 
-<a href="https://github.com/GunnJerkens/gj-custom-login">GJ Custon Login on GitHub</a>
+<a href="https://github.com/GunnJerkens/gj-custom-login">GJ Custom Login on GitHub</a>
