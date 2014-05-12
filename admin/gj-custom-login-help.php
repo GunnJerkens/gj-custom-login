@@ -1,5 +1,8 @@
 <h1>Help</h1>
 
+<h2>Logo</h2>
+Default WordPress logo size is 80x80. You can use a larger image size by adjusting the default CSS.
+
 <h2>Available CSS Selectors</h2>
 
 <p>
@@ -22,3 +25,4 @@ body.login div#login p#nav a {}<br>
 body.login div#login p#backtoblog {}<br>
 body.login div#login p#backtoblog a {}<br>
 </p>
+

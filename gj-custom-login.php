@@ -15,6 +15,7 @@ class gj_custom_login {
 
   function __construct() {
    add_action('admin_menu', array(&$this,'gj_custom_login_admin_actions'));
+   add_action('admin_enqueue_scripts', array(&$this,'gj_custom_login_scripts'));
   }
 
   function gj_custom_login_admin_actions() {
@@ -25,6 +26,13 @@ class gj_custom_login {
     include ('admin/gj-custom-login-options.php');
   }
 
+  function gj_custom_login_scripts() {
+      if (isset($_GET['page']) && $_GET['page'] == 'gj_custom_login') {
+          wp_enqueue_media();
+          wp_register_script('gj-custom-login-js', WP_PLUGIN_URL.'/gj-custom-login/js/gj-custom-login.js', array('jquery'));
+          wp_enqueue_script('gj-custom-login-js');
+      }
+  }
 
 }
 
