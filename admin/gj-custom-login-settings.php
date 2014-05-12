@@ -4,11 +4,11 @@
 if(isset($_POST['gj_hidden']) && $_POST['gj_hidden'] == 'gj_form_update_options') {
 
   $gj_login_logo = $_POST['gj_login_logo'];
-  update_option('gj_login_logo', $gj_login_logo); 
+  update_option('gj_login_logo', $gj_login_logo);
 
   $gj_login_css = $_POST['gj_login_css'];
   update_option('gj_login_css', $gj_login_css);
-  $gj_login_css_str = stripslashes($gj_login_css); 
+  $gj_login_css_str = stripslashes($gj_login_css);
 
   $gj_login_url = $_POST['gj_login_url'];
   update_option('gj_login_url', $gj_login_url);
@@ -17,7 +17,16 @@ if(isset($_POST['gj_hidden']) && $_POST['gj_hidden'] == 'gj_form_update_options'
   update_option('gj_login_url_type', $gj_login_url_type);
 
   $gj_login_url_title = $_POST['gj_login_url_title'];
-  update_option('gj_login_url_title', $gj_login_url_title); ?>
+  update_option('gj_login_url_title', $gj_login_url_title);
+
+  $gj_login_mail_from = $_POST['gj_login_mail_from'];
+  update_option('gj_login_mail_from', $gj_login_mail_from);
+
+  $gj_login_mail_from_type = $_POST['gj_login_mail_from_type'];
+  update_option('gj_login_mail_from_type', $gj_login_mail_from_type);
+
+  $gj_login_mail_from_name = $_POST['gj_login_mail_from_name'];
+  update_option('gj_login_mail_from_name', $gj_login_mail_from_name); ?>
 
   <div class="updated"><p><strong>Options saved.</strong></p></div><?php
 
@@ -29,6 +38,9 @@ if(isset($_POST['gj_hidden']) && $_POST['gj_hidden'] == 'gj_form_update_options'
   $gj_login_url = get_option('gj_login_url');
   $gj_login_url_type = get_option('gj_login_url_type');
   $gj_login_url_title = get_option('gj_login_url_title');
+  $gj_login_mail_from = get_option('gj_login_mail_from');
+  $gj_login_mail_from_type = get_option('gj_login_mail_from_type');
+  $gj_login_mail_from_name = get_option('gj_login_mail_from_name');
 
 } ?>
 
@@ -58,7 +70,7 @@ if(isset($_POST['gj_hidden']) && $_POST['gj_hidden'] == 'gj_form_update_options'
         <td><input id="gj_login_url" type="text" name="gj_login_url" value="<?php echo $gj_login_url ? $gj_login_url : 'https://wordpress.org'; ?>" /></td>
         <td>
           <select id="gj_login_url_type" name="gj_login_url_type">
-            <option value="default" <?php echo $gj_login_url_type === 'default' ? 'selected="selected"' : ''; ?>>Default</option>
+            <option value="default" <?php echo $gj_login_url_type === 'default' ? 'selected="selected"' : ''; ?>>WordPress Default</option>
             <option value="home" <?php echo $gj_login_url_type === 'home' ? 'selected="selected"' : ''; ?>>Home URL</option>
             <option value="custom" <?php echo $gj_login_url_type === 'custom' ? 'selected="selected"' : ''; ?>>Custom URL</option>
           </select> 
@@ -71,6 +83,20 @@ if(isset($_POST['gj_hidden']) && $_POST['gj_hidden'] == 'gj_form_update_options'
       <tr>
         <th><label for="gj_login_css">CSS</label></th>
         <td><textarea type="textarea" name="gj_login_css"><?php echo $gj_login_css_str; ?></textarea></td>
+      </tr>
+      <tr>
+        <th><label for="gj_login_mail_from">Forgotten Password From</label></th>
+        <td><input id="gj_login_mail_from" type="text" name="gj_login_mail_from" value="<?php echo $gj_login_mail_from ? $gj_login_mail_from : get_bloginfo('admin_email'); ?>" /></td>
+        <td>
+          <select id="gj_login_mail_from_type" name="gj_login_mail_from_type">
+            <option value="default" <?php echo $gj_login_mail_from_type === 'default' ? 'selected="selected"' : ''; ?>>WordPress Default</option>
+            <option value="custom" <?php echo $gj_login_mail_from_type === 'custom' ? 'selected="selected"' : ''; ?>>Custom Email</option>
+          </select> 
+        </td>
+      </tr>
+      <tr>
+        <th><label for="gj_login_mail_from_name">Forgotten Password From</label></th>
+        <td><input id="gj_login_mail_from_name" type="text" name="gj_login_mail_from_name" value="<?php echo $gj_login_mail_from_name ? $gj_login_mail_from_name : get_bloginfo('name'); ?>" /></td>
       </tr>
     </table>
 

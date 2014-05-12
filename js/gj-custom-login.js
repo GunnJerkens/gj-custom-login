@@ -33,28 +33,34 @@ jQuery(document).ready(function($){
   });
 
 
-  var value;
+  var url, mail;
 
-  value = $('#gj_login_url_type');
+  url = $('#gj_login_url_type');
+  mail = $('#gj_login_mail_from_type');
 
-  value.change(function() {
+  $('select').change(function() {
     disableURL();
   });
 
   function enableURL() {
-    $('#gj_login_url').prop('disabled', false);
-    $('#gj_login_url_title').prop('disabled', false);
+    $('input').prop('disabled', false);
   }
 
   function disableURL() {
     enableURL();
 
-    if(value.val() === 'default') {
+    if(url.val() === 'default') {
       $('#gj_login_url').prop('disabled', true);
       $('#gj_login_url_title').prop('disabled', true);
-    } else if (value.val() === 'home') {
+    } else if (url.val() === 'home') {
       $('#gj_login_url').prop('disabled', true);
     }
+
+    if(mail.val() === 'default') {
+      $('#gj_login_mail_from').prop('disabled', true);
+      $('#gj_login_mail_from_name').prop('disabled', true);
+    }
+
   }
 
   disableURL();

@@ -4,6 +4,8 @@ add_action('login_enqueue_scripts', 'gjLoginLogo');
 add_action('login_enqueue_scripts', 'gjLoginCSS');
 add_filter( 'login_headerurl', 'gjLoginURL' );
 add_filter( 'login_headertitle', 'gjLoginURLTitle' );
+add_filter ("wp_mail_from", "gjLoginMailFrom");
+add_filter ("wp_mail_from_name", "gjLoginMailFromName");
 
 function gjLoginLogo() {
 
@@ -47,7 +49,6 @@ function gjLoginURL() {
 
 }
 
-
 function gjLoginURLTitle() {
 
   $gj_login_url_type = get_option('gj_login_url_type');
@@ -58,5 +59,30 @@ function gjLoginURLTitle() {
   }
 
   return $gj_login_url_title;
+
+}
+
+function gjLoginMailFrom() {
+
+  $gj_login_mail_from = get_option('gj_login_mail_from');
+  $gj_login_mail_from_type = get_option('gj_login_mail_from_type');
+
+  if($gj_login_mail_from_type === 'default') {
+    $gj_login_mail_from = "no-reply";
+  }
+
+  return $gj_login_mail_from;
+}
+
+function gjLoginMailFromName() {
+
+  $gj_login_mail_from_type = get_option('gj_login_mail_from_type');
+  $gj_login_mail_from_name = get_option('gj_login_mail_from_name');
+
+  if($gj_login_mail_from_type === 'default') {
+    $gj_login_mail_from_name = "WordPress";
+  }
+
+  return $gj_login_mail_from_name;
 
 }
