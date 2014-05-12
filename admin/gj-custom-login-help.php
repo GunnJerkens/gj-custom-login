@@ -1,7 +1,8 @@
 <h1>Help</h1>
 
 <h2>Logo</h2>
-Default WordPress logo size is 80x80. You can use a larger image size by adjusting the default CSS.
+
+<p>Default WordPress logo size is 80x80. You can use a larger image size by adjusting the default CSS.</p>
 
 <h2>Available CSS Selectors</h2>
 
@@ -26,3 +27,6 @@ body.login div#login p#backtoblog {}<br>
 body.login div#login p#backtoblog a {}<br>
 </p>
 
+<h2>GitHub</h2>
+
+<a href="https://github.com/GunnJerkens/gj-custom-login">GJ Custon Login on GitHub</a>

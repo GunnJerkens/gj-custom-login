@@ -1,10 +1,5 @@
 <?php
 
-// TODO
-// Create admin panel to upload image
-// Allow upload of custom CSS
-
-
 add_action('login_enqueue_scripts', 'gjLoginLogo');
 add_action('login_enqueue_scripts', 'gjLoginCSS');
 add_filter( 'login_headerurl', 'gjLoginURL' );
