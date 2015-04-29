@@ -1,6 +1,5 @@
 <?php
 
-
 if(isset($_POST['gj_hidden']) && $_POST['gj_hidden'] == 'gj_form_update_options') {
 
   $gj_login_logo = $_POST['gj_login_logo'];
@@ -26,21 +25,25 @@ if(isset($_POST['gj_hidden']) && $_POST['gj_hidden'] == 'gj_form_update_options'
   update_option('gj_login_mail_from_type', $gj_login_mail_from_type);
 
   $gj_login_mail_from_name = $_POST['gj_login_mail_from_name'];
-  update_option('gj_login_mail_from_name', $gj_login_mail_from_name); ?>
+  update_option('gj_login_mail_from_name', $gj_login_mail_from_name);
+
+  $gj_login_disable_notifications = isset($_POST['gj_login_disable_notifications']) ? true : false;
+  update_option('gj_login_disable_notifications', $gj_login_disable_notifications); ?>
 
   <div class="updated"><p><strong>Options saved.</strong></p></div><?php
 
 } else {
 
-  $gj_login_logo = get_option('gj_login_logo');
-  $gj_login_css = get_option('gj_login_css');
-  $gj_login_css_str = stripslashes($gj_login_css);
-  $gj_login_url = get_option('gj_login_url');
-  $gj_login_url_type = get_option('gj_login_url_type');
-  $gj_login_url_title = get_option('gj_login_url_title');
-  $gj_login_mail_from = get_option('gj_login_mail_from');
-  $gj_login_mail_from_type = get_option('gj_login_mail_from_type');
-  $gj_login_mail_from_name = get_option('gj_login_mail_from_name');
+  $gj_login_logo                  = get_option('gj_login_logo');
+  $gj_login_css                   = get_option('gj_login_css');
+  $gj_login_css_str               = stripslashes($gj_login_css);
+  $gj_login_url                   = get_option('gj_login_url');
+  $gj_login_url_type              = get_option('gj_login_url_type');
+  $gj_login_url_title             = get_option('gj_login_url_title');
+  $gj_login_mail_from             = get_option('gj_login_mail_from');
+  $gj_login_mail_from_type        = get_option('gj_login_mail_from_type');
+  $gj_login_mail_from_name        = get_option('gj_login_mail_from_name');
+  $gj_login_disable_notifications = get_option('gj_login_disable_notifications');
 
 } ?>
 
@@ -97,6 +100,10 @@ if(isset($_POST['gj_hidden']) && $_POST['gj_hidden'] == 'gj_form_update_options'
       <tr>
         <th><label for="gj_login_mail_from_name">Forgotten Password From</label></th>
         <td><input id="gj_login_mail_from_name" type="text" name="gj_login_mail_from_name" value="<?php echo $gj_login_mail_from_name ? $gj_login_mail_from_name : get_bloginfo('name'); ?>" /></td>
+      </tr>
+      <tr>
+        <th><label for="gj_login_disable_notifications">Disable Forgotten Password Notifications</label></th>
+        <td><input id="gj_login_disable_notifications" type="checkbox" name="gj_login_disable_notifications"<?php echo $gj_login_disable_notifications ? " checked" : ""; ?>/></td>
       </tr>
     </table>
 
