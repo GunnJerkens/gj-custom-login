@@ -4,8 +4,8 @@ add_action('login_enqueue_scripts', 'gjLoginLogo');
 add_action('login_enqueue_scripts', 'gjLoginCSS');
 add_filter( 'login_headerurl', 'gjLoginURL' );
 add_filter( 'login_headertitle', 'gjLoginURLTitle' );
-add_filter ("wp_mail_from", "gjLoginMailFrom");
-add_filter ("wp_mail_from_name", "gjLoginMailFromName");
+add_filter( "wp_mail_from", "gjLoginMailFrom" );
+add_filter( "wp_mail_from_name", "gjLoginMailFromName" );
 
 function gjLoginLogo() {
 
